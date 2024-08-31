@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const ffmpeg = require('fluent-ffmpeg');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
-const Video = require('../models/Video');
+const Video = require('../models/video');
 const TranscodingSetting = require('../models/transcodingSettings');
 const authMiddleware = require('../middleware/authMiddleware');
 

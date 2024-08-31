@@ -10,7 +10,7 @@ const loginRoutes = require('./routes/login');
 const videoRoutes = require('./routes/videos');
 const transcodingRoutes = require('./routes/transcodingSettings')
 app.use(cors({
-  origin: 'http://localhost:5000',
+  origin: 'http://13.210.19.5:5000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }))
@@ -26,7 +26,7 @@ app.use('/api/transcoding-settings', transcodingRoutes);
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-mongoose.connect("mongodb://localhost:27017/image-editor").then(()=>{
+mongoose.connect("mongodb://mongo:27017/image-editor").then(()=>{
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
       })

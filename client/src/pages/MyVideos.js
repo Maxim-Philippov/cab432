@@ -29,11 +29,11 @@ const MyVideos = () => {
             <li key={video._id} style={styles.videoItem}>
               <h3>{video.title}</h3>
               <video width="320" height="240" controls>
-                <source src={`http://localhost:3000/uploads/${video.filePath.split('\\').pop().split('/').pop()}`} type="video/mp4" />
+                <source src={`http://13.210.19.5:3000/uploads/${video.filePath.split('\\').pop().split('/').pop()}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <video width="320" height="240" controls>
-                <source src={`http://localhost:3000/uploads/${video.transcodedPath}`} type="video/mp4" />
+                <source src={`http://13.210.19.5:3000/uploads/${video.transcodedPath}`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <p><strong>Status:</strong> {video.status}</p>

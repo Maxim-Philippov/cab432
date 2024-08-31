@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - '5000:5000'
+      - '3000:3000'
     environment:
       - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/iamge-editor # Connection string pointing to the MongoDB service
@@ -20,7 +20,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - '3000:80'
+      - '5000:80'
     networks:
       - app-network
 
