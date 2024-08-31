@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { registerUser } from '../services/auth';
 import '../styling/auth.css';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../services/auth';
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       const response = await registerUser({ username, email, password });
-      setMessage('Registration successful. Please log in.');
+      if (response.status === 201) {
+      const response = await loginUser({ email, password });
+      localStorage.setItem('token', response.data.token);
+      setMessage('Login successful.');
+      navigate('/upload'); // Redirect to upload page after login
+    }
     } catch (error) {
       setMessage(`Error: ${error.response?.data?.message || 'Registration failed'}`);
     }
